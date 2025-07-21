@@ -16,9 +16,10 @@ public class Main {		// main method가 여기서부터 시작
 		while (run) {
 			System.out.println("도서 관리 시스템");
 			System.out.println("1. 도서 목록");
-			System.out.println("2. 도서 목록");
+			System.out.println("2. 도서 등록");
 			System.out.println("3. 도서 수정");
 			System.out.println("4. 도서 삭제");
+			System.out.println("5. 도서 하나");
 			System.out.println("9. 종료");
 			System.out.print("선택 : ");
 			int menu = scn.nextInt();		//입력값을 menu변수에 대입(할당)
@@ -66,7 +67,32 @@ public class Main {		// main method가 여기서부터 시작
 					System.out.println("수정 중 오류");
 				}
 				break;
-	
+				
+			case 4 :
+				System.out.println("삭제할 번호");
+				bno = scn.nextInt();scn.nextLine();
+				if (dao.delete(bno)) {
+					System.out.println("삭제완료");
+				} else {
+					System.out.println("삭제실패");
+				}
+				break;
+				
+			case 5 :
+				System.out.println("도서번호>> ");
+				bno = scn.nextInt();
+				scn.nextLine();
+				
+				ArrayList<Book> list1 = dao.findByID(bno);
+				
+				System.out.println("도서번호   도서명   저자   가격");
+				System.out.println("=========================");
+				System.out.println(list1.get(0).getId() 
+									+ " " + list1.get(0).getTitle()
+									+ " " + list1.get(0).getAuthor()
+									+ " " + list1.get(0).getPrice());
+				break;
+				
 			case 9 : 	// 종료
 				run = false;
 			} // end of switch

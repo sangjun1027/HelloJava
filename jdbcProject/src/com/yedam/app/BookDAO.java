@@ -36,8 +36,63 @@ public class BookDAO {
 		}	catch (SQLException e) {
 			e.printStackTrace();
 		}	return false;  	//일단 에러 없는 상태로 만들기
-	
-	}	//end of update
+	}
+		
+		
+		
+		
+		// 숙제 : 삭제기능(delete), 단건조회(findById) 작성해보셈
+		public boolean delete(int bno) {
+			Connection conn = DBUtill.getConnect();
+			String query = "delete from book" //
+							+ "   where id = ? ";
+			// System.out.println(query);
+			
+			try {
+				PreparedStatement stmt = conn.prepareStatement(query);
+				stmt.setInt(1,  bno);		
+				//stmt.setInt(2,  bno);
+			
+			int r = stmt.executeUpdate();		
+			if ( r > 0 ) {		
+				return true;
+			}
+			}	catch (SQLException e) {
+				e.printStackTrace();
+			}	return false;  	//일단 에러 없는 상태로 만들기
+		}
+		
+		public ArrayList<Book> findByID(int bno) {
+			Connection conn = DBUtill.getConnect();
+			ArrayList<Book> list1 = new ArrayList<Book>();
+			String query = "select id, title, author, price"
+					+ "     from book"
+					+ "     where id = "
+					+ bno;
+			
+			try {
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(query);
+				
+				rs.next();
+				Book book = new Book();
+				book.setId(rs.getInt("id"));
+				book.setTitle(rs.getString("title"));
+				book.setAuthor(rs.getString("author"));
+				book.setPrice(rs.getInt("price"));
+				list1.add(book);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return list1;
+		}
+			
+		//end of update
+		
+		
+		
+		
+		
 	// 등록, 매개값(book), 반환값(blooean)
 	
 	public boolean insert (Book book) {
