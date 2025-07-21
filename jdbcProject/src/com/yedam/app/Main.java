@@ -36,11 +36,45 @@ public class Main {		// main method가 여기서부터 시작
 								);
 					} // end of for
 					break;	
+			
+			case 2 : // 도서등록
+				System.out.println("도서번호 >> ");
+				int bno = scn.nextInt();scn.nextLine();			//1003엔터, 변환값이 int
+				System.out.println("도서제목 >> ");
+				String title = scn.nextLine();		//변환값이 String
+				System.out.println("도서저자 >> ");
+				String author = scn.nextLine();		//변환값이 String
+				System.out.println("도서가격 >> ");
+				int price = scn.nextInt();scn.nextLine();		//변환값이 int
+				
+				Book book = new Book (bno, title, author, price);
+				if (dao.insert(book)){		//dao.insert(book)변환 값이 blooean이라서 true면 위, false면 else
+					System.out.println("정상 등록");
+				} else {
+					System.out.println("등록 중 오류");
+				}
+				break;
+				
+			case 3 : // 도서수정
+				System.out.println("도서번호 >> ");
+				bno = scn.nextInt();scn.nextLine();			
+				System.out.println("도서가격 >> ");
+				price = scn.nextInt();scn.nextLine();
+				if (dao.update(bno, price)) {
+					System.out.println("정상 수정");
+				} else {
+					System.out.println("수정 중 오류");
+				}
+				break;
+	
 			case 9 : 	// 종료
 				run = false;
 			} // end of switch
 		} // end of while
 		System.out.println("end of program");
+		
+		scn.close();
 	}//end main().
+	
 } // end of class
 		
