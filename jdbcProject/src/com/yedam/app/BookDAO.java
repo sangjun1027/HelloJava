@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class BookDAO {
 	// 목록조회(다건) 즉, 다건을 조회하는 기능을 생성
-	// BookDAO라는 크래스에 findall이라는 메소드르 만들어준 것
+	// BookDAO라는 클래스에 findall이라는 메소드르 만들어준 것
 	// 수정, 매개값(int bno, int price), 반환값(boolean)
 	
 	// 숙제 : 삭제기능(delete), 단건조회(findById) 작성해보셈
