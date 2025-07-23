@@ -2,8 +2,6 @@ package Board;
 
 import java.util.Scanner;
 
-import com.yedam.app.Book;
-
 public class BoardMain {
 	public static void main(String[] args) {
 		boolean run = true;
@@ -68,7 +66,7 @@ public class BoardMain {
 						System.out.print(" 5. 전화번호 >> ");
 						int phone = scan.nextInt();scan.nextLine();
 						System.out.println();
-						if (dao.insert(firstId, pass, name, phone)){		
+						if (dao.newjoin(firstId, pass, name, phone)){		
 							System.out.println("회원가입을 축하드립니다.");
 						} else {
 							System.out.println("등록 중 오류");
@@ -83,7 +81,7 @@ public class BoardMain {
 		
 		System.out.println("=======================================");
 		System.out.println("                                       ");
-		System.out.println("  ★☆★☆★ Welcom to ZZUN World ★☆★☆★  ");
+		System.out.println("  ★☆★☆★ Welcom to ZZUN Center ★☆★☆★  ");
 		System.out.println("                                       ");
 		System.out.println("=======================================");
 		
@@ -91,13 +89,52 @@ public class BoardMain {
 		System.out.print("선수이름을 입력하세요. >> ");
 		String sname = scan.nextLine();
 		Bat bat = bdao.bats(sname);
-		System.out.println(bat.getName());
 		
+		System.out.println(" " + bat.getName()+ "  | 홈런" + bat.getHr() + "개"
+				               + "  | 타율 " + bat.getAvg() 
+				               + "  | 타점 " + bat.getRb() + "점" 
+				               + "  | 출루율+장타율 " + bat.getOps()
+				               + "  | wrc+ " + bat.getWrc());
+		System.out.println();
+		System.out.println("1. 홈런순위 ");
+		System.out.println("2. 타율순위 ");
+		System.out.println("3. 타점순위 ");
+		System.out.println("4. 출루율 + 장타율 순위 ");
+		System.out.println("5. wrc+ 순위 ");
+		System.out.println("6. 선수이름입력 ");
+		System.out.println();
+		System.out.print("원하는 정보를 입력해주세요 >> ");
+		int info = Integer.parseInt(scan.nextLine());
 		
+		switch(info) {
 		
-		
-		
-		
+		case 1 :
+			
+			System.out.print("선수이름을 입력하세요 >> ");
+			String name = scan.nextLine();			//1003엔터, 변환값이 int
+			System.out.print("선수나이를 입력하세요 >> ");
+			int age = Integer.parseInt(scan.nextLine());		//변환값이 String
+			System.out.print("현재 홈런갯수를 입력하세요 >> ");
+			int hr = Integer.parseInt(scan.nextLine());
+			System.out.print("현재 타율을 입력하세요. >> ");
+			double avg = Double.parseDouble(scan.nextLine());
+			System.out.print("현재 타점을 입력하세요. >> ");
+			int rb = Integer.parseInt(scan.nextLine()); 
+			System.out.print("현재 OPS를 입력하세요. >> ");
+			double ops = Double.parseDouble(scan.nextLine());
+			System.out.println("현재 wrc+를 입력하세요. >> ");
+			double wrc = Double.parseDouble(scan.nextLine());
+			System.out.println("현재 WAR을 입력하세요. >> ");
+			double war = Double.parseDouble(scan.nextLine());
+			
+			Bat sbat = new Bat (name, age, hr, avg, rb, ops, wrc, war);
+			if (bdao.insert(bat)){		
+				System.out.println("정상 등록");
+			} else {
+				System.out.println("등록 중 오류");
+			}
+			break;
+		}
 		
 	}//end of method
 }// end of class

@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.yedam.app.Book;
-import com.yedam.app.DBUtill;
 
 
 
@@ -61,7 +59,7 @@ public class BoardDAO {
 			return false;
 	}//end of method overlap
 	
-public  boolean insert(String id, String pwd, String name, int phone) { // 회원등록 method : newjoin 
+public  boolean newjoin(String id, String pwd, String name, int phone) { // 회원등록 method : newjoin 
 		
 		Connection conn = BoardUtil.getConnect();
 		String query = "insert into zuser (id,"

@@ -5,18 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.yedam.app.DBUtill;
-
 public class BatDAO {
 	public Bat bats (String name) {
 		Bat bat = new Bat();
 		Connection conn = BoardUtil.getConnect();
 		String query = "select batname,"
+						   + " age"
 			               + " hr,"
-			               + " ang,"
+			               + " avg,"
 			               + " rb,"
 			               + " ops,"
 			               + " wrc"
+			               + " war"
 			    +" from   samsungbat"
 			    + " where batname = ?";
 	try {
@@ -25,17 +25,22 @@ public class BatDAO {
 
 		ResultSet r = stmt.executeQuery();
 		
-		r.next();
+		while (r.next() ) {
 		bat.setName(r.getString("batname"));
+		bat.setAge(r.getInt("age"));
 		bat.setHr(r.getInt("hr"));
-		bat.setAvg(r.getInt("avg"));
+		bat.setAvg(r.getDouble("avg"));
 		bat.setRb(r.getInt("rb"));
-		bat.setOps(r.getInt("ops"));
-		bat.setWrc(r.getInt("wrc"));
-		
+		bat.setOps(r.getDouble("ops"));
+		bat.setWrc(r.getDouble("wrc"));
+		bat.setWar(r.getDouble("war"));
+		}	
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
 	return bat;
 	}
-}
+	
+		
+	}
+
