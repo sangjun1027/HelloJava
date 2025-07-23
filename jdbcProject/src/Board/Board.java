@@ -7,6 +7,12 @@ public class Board {		//필드
 	private String name;
 	private int phone;
 	
+	public Board(String id, String pwd, String name, int phone) {
+        this.id = id;
+        this.pwd = pwd;
+        this.name = name;
+        this.phone = phone;
+	}
 	
 		//생성자
 	public Board() {}
