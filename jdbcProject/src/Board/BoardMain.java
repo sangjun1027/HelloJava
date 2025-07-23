@@ -9,6 +9,8 @@ public class BoardMain {
 		boolean run = true;
 		Scanner scan = new Scanner(System.in);
 		BoardDAO dao = new BoardDAO();
+		BatDAO bdao = new BatDAO();
+		
 		
 		// 첫 로그인화면 
 		while (run) {
@@ -85,9 +87,13 @@ public class BoardMain {
 		System.out.println("                                       ");
 		System.out.println("=======================================");
 		
-		while
+		//while
 		System.out.print("선수이름을 입력하세요. >> ");
 		String sname = scan.nextLine();
+		Bat bat = bdao.bats(sname);
+		System.out.println(bat.getName());
+		
+		
 		
 		
 		
