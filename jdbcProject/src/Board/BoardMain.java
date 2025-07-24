@@ -3,7 +3,7 @@ package Board;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.yedam.app.Book;
+
 
 public class BoardMain {
 	public static void main(String[] args) {

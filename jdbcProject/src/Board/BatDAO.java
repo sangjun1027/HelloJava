@@ -7,8 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.yedam.app.Book;
-import com.yedam.app.DBUtill;
+
 
 public class BatDAO {
 	public Bat bats (String name) {
@@ -119,7 +118,7 @@ yagu(String name, int age, int hr, double avg, int rb, double ops, double wrc, d
 		String query = "select batname, age, hr, avg,"
 				+ "                 rb, ops, wrc, war"
 				+ "     from               samsungbat"
-		        + "   order by             hr desc";
+		        + "   order by             avg desc";
 		
 		try {
 			Statement stmt = conn.createStatement();
@@ -151,7 +150,7 @@ yagu(String name, int age, int hr, double avg, int rb, double ops, double wrc, d
 		String query = "select batname, age, hr, avg,"
 				+ "                 rb, ops, wrc, war"
 				+ "     from               samsungbat"
-		        + "   order by             hr desc";
+		        + "   order by             rb desc";
 		
 		try {
 			Statement stmt = conn.createStatement();
@@ -183,7 +182,7 @@ yagu(String name, int age, int hr, double avg, int rb, double ops, double wrc, d
 		String query = "select batname, age, hr, avg,"
 				+ "                 rb, ops, wrc, war"
 				+ "     from               samsungbat"
-		        + "   order by             hr desc";
+		        + "   order by             ops desc";
 		
 		try {
 			Statement stmt = conn.createStatement();
@@ -215,7 +214,7 @@ yagu(String name, int age, int hr, double avg, int rb, double ops, double wrc, d
 		String query = "select batname, age, hr, avg,"
 				+ "                 rb, ops, wrc, war"
 				+ "     from               samsungbat"
-		        + "   order by             hr desc";
+		        + "   order by             wrc desc";
 		
 		try {
 			Statement stmt = conn.createStatement();
@@ -247,7 +246,7 @@ yagu(String name, int age, int hr, double avg, int rb, double ops, double wrc, d
 		String query = "select batname, age, hr, avg,"
 				+ "                 rb, ops, wrc, war"
 				+ "     from               samsungbat"
-		        + "   order by             hr desc";
+		        + "   order by             war desc";
 		
 		try {
 			Statement stmt = conn.createStatement();
