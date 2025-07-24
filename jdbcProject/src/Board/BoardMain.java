@@ -81,6 +81,10 @@ public class BoardMain {
 			 }// end of if zlog else
 			
 		}//end of while(run)
+		boolean t = true;
+		
+		while ( t ) {
+		
 		boolean z = true;
 		String sname = "";
 		while( z ) {
@@ -185,6 +189,8 @@ public class BoardMain {
 						   + "     " + warlist.get(i).getWar() + "        " + ( i+1 ))  ; 
 			} // end of for
 			break;
+		
+		
 		case 9 :		//선수등록
 			
 			System.out.print("선수이름을 입력하세요 >> ");
@@ -211,6 +217,6 @@ public class BoardMain {
 			break; 
 			}
 		}//end of switch
-		
+		}//end of while (t)
 	}//end of method
 }// end of class
