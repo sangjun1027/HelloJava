@@ -11,6 +11,11 @@ import com.yedam.vo.Book;
 
 public class Main {
 	public static void main(String[] args) {
+		BookControl ctrl = new BookControl();
+		ctrl.exe();
+	}
+	
+	void backup() {
 		
 		Object obj;
 		// RunExe는 Runnable를 구현하는 클래스  -교수님 필기-
@@ -29,7 +34,7 @@ public class Main {
 		// interface - 구현class ↓
 		BookMapper mapper = sqlSession.getMapper(BookMapper.class);
 //		Book book = mapper.selectBook(1001);	// 앞에 Book book 안적어도됨
-		List<Book> list = mapper.selectList();	//37행이랑 같은 기능, 37행보다 사용이 편함
+		List<Book> list = mapper.selectList(1);	//37행이랑 같은 기능, 37행보다 사용이 편함
 		
 		
 //		단건조회
